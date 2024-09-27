@@ -134,7 +134,7 @@ bool program_from_file(char* filename)
 
     const uint32_t pages = (file_size + page_size - 1) / page_size;
     const uint32_t sectors = (file_size + sector_size - 1) / sector_size;
-;
+
     const uint32_t cnt = page_size / (1 << data_width); // data width 0 = 8 bytes, 1 = 16 bytes, 2 = 32 bytes
     printf("file_size=%u page_size=%u pages=%u data_width=%u\n", file_size, page_size, pages, data_width);
     printf("sector_size=%u sectors=%u\n", sector_size, sectors);
@@ -154,7 +154,7 @@ bool program_from_file(char* filename)
 
     uint32_t addr = 0;
     const uint8_t *file_buffer_ptr = &file_buffer;
-    uint32_t pages_left_in_buffer = 0;
+    uint32_t bytes_left_in_buffer = 0;
 
     uint32_t progress = 0;
     uint32_t progress_printed = 100;
@@ -165,7 +165,7 @@ bool program_from_file(char* filename)
         progress = (ii+1) * 100 / pages;
         // Fetch data to write
         ULONG actual_size = 0;
-        if (pages_left_in_buffer == 0) {
+        if (bytes_left_in_buffer == 0) {
             status = fx_file_read(&image_file, file_buffer, sizeof(file_buffer), &actual_size);
             if (status != FX_SUCCESS)
             {
@@ -174,15 +174,15 @@ bool program_from_file(char* filename)
             }
 
             file_buffer_ptr = &file_buffer;
-            pages_left_in_buffer = actual_size / page_size;
+            bytes_left_in_buffer += actual_size;
+        }
 
-            // Check that we write full pages
-            if (pages_left_in_buffer * page_size != actual_size) {
-                // Only last page can be non-full
-                if (ii + 1 != pages) {
-                    printf("Error: not enough data for page write");
-                    return false;
-                }
+        // Check that we write full pages
+        if (bytes_left_in_buffer < page_size) {
+            // Only last page can be non-full
+            if (ii + 1 != pages) {
+                printf("Error: not enough data for page write, ii = %u, bytes_left_in_buffer=%u\n", ii, bytes_left_in_buffer);
+                return false;
             }
         }
 
@@ -194,7 +194,7 @@ bool program_from_file(char* filename)
 
         addr += page_size;
         file_buffer_ptr += page_size;
-        pages_left_in_buffer--;
+        bytes_left_in_buffer -= page_size;
 
         if (progress != progress_printed) {
             printf("%u%%\n", progress);
