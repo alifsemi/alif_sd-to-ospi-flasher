@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/tools/projmgr/2.6.0/tools/projmgr/schemas/cproject.schema.json
+project:
+  groups:
+    - group: App
+      files:
+        - file: main.c
+        - file: leds.c
+        - file: ext_flash.c
+        - file: sd_card.c
+
+  misc:
+    - ASM:
+      - -include "Pre_Include_Global.h"
+
+  output:
+    base-name: $Project$
+    type:
+      - elf
+      - bin
+
+  add-path:
+    - .
+
+  layers:
+    - layer: ../device/ensemble/alif-ensemble.clayer.yml
+  components:
+    - component: AlifSemiconductor::Device:SOC Peripherals:OSPI
+    - component: AlifSemiconductor::Device:SOC Peripherals:SDMMC
+    - component: AlifSemiconductor::CMSIS Driver:USART
+    - component: AlifSemiconductor::BSP:External peripherals:OSPI Flash ISSI
+    - component: ARM::CMSIS-Compiler:CORE
+    - component: ARM::CMSIS-Compiler:STDOUT:Custom
+    - component: AlifSemiconductor::Services:Retarget IO:STDOUT
+
+    - component: AlifSemiconductor::RTOS&AzureRTOS:Kernel:Core
+    - component: AlifSemiconductor::RTOS&AzureRTOS:Kernel:GCC_Port
+    - component: AlifSemiconductor::RTOS&AzureRTOS:FILEX:Core
+    - component: AlifSemiconductor::RTOS&AzureRTOS:FILEX:SD Driver
+
+
