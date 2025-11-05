@@ -9,7 +9,7 @@
 #ifndef PRE_INCLUDE_GLOBAL_H
 #define PRE_INCLUDE_GLOBAL_H
 
-/* AlifSemiconductor::RTOS&AzureRTOS:Kernel:Core@6.2.1 */
+/* AlifSemiconductor::RTOS&ThreadX:Kernel:Core@6.4.2 */
 // enabling global pre include
         #define TX_SINGLE_MODE_SECURE
 

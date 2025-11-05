@@ -11,8 +11,8 @@ solution:
   compiler: GCC
 
   packs:
-    - pack: AlifSemiconductor::Ensemble@2.0.3
-    - pack: AlifSemiconductor::AzureRTOS@2.0.0-alpha
+    - pack: AlifSemiconductor::Ensemble@2.0.4
+    - pack: AlifSemiconductor::ThreadX@2.0.0
     - pack: ARM::CMSIS@6.0.0
     - pack: ARM::CMSIS-Compiler@2.1.0
 

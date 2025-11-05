@@ -4776,7 +4776,7 @@
 //    <2=> SDC_50MHz
 // <i> Defines SDC0 Clock select
 // <i> Default: 50MHz
-#define RTE_SDC_CLOCK_SELECT    1
+#define RTE_SDC_CLOCK_SELECT    2
 
 //    <o> SDC DMA SELECT
 //    <0=> SDMA

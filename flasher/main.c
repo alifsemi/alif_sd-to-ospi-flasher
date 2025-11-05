@@ -62,7 +62,7 @@ void clock_init(bool enable)
     }
 }
 
-
+extern sd_handle_t Hsd;
 void program_thread_entry(ULONG args)
 {
     bool status = ext_flash_init();
@@ -72,7 +72,7 @@ void program_thread_entry(ULONG args)
 
     /* Open the SD disk. and initialize SD controller */
     memset(&sd_card,0, sizeof(sd_card));
-
+    memset(&Hsd, 0, sizeof(Hsd)); // TODO: handle memory should be initialized by the driver
     uint32_t fx_media_status = fx_media_open(&sd_card, "SD_DISK", _fx_sd_driver, 0, (VOID *)media_memory, sizeof(media_memory));
     if (fx_media_status != FX_SUCCESS)
     {

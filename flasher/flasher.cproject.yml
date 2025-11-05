@@ -32,9 +32,9 @@ project:
     - component: ARM::CMSIS-Compiler:STDOUT:Custom
     - component: AlifSemiconductor::Services:Retarget IO:STDOUT
 
-    - component: AlifSemiconductor::RTOS&AzureRTOS:Kernel:Core
-    - component: AlifSemiconductor::RTOS&AzureRTOS:Kernel:GCC_Port
-    - component: AlifSemiconductor::RTOS&AzureRTOS:FILEX:Core
-    - component: AlifSemiconductor::RTOS&AzureRTOS:FILEX:SD Driver
+    - component: AlifSemiconductor::RTOS&ThreadX:Kernel:Core
+    - component: AlifSemiconductor::RTOS&ThreadX:Kernel:GCC_Port
+    - component: AlifSemiconductor::RTOS&ThreadX:FILEX:Core
+    - component: AlifSemiconductor::RTOS&ThreadX:FILEX:SD Driver
 
 

@@ -1030,8 +1030,8 @@
 //     <3=>   640x480_RGB565
 //     <4=>   320x240_RGB565
 //     <5=>   320x320_RGB565
-// <i> Default: 0
-#define RTE_MT9M114_CAMERA_SENSOR_MIPI_IMAGE_CONFIG            2
+// <i> Default: 1
+#define RTE_MT9M114_CAMERA_SENSOR_MIPI_IMAGE_CONFIG            1
 
 // <o> select MT9M114 MIPI number of lanes in DPHY
 // <i> defines select MT9M114 MIPI number of lanes in DPHY.
@@ -1970,6 +1970,8 @@
 
 // <o> ICM42670 IMU INT pin GPIO port number range <0-15>
 // <i> Defines ICM42670 IMU INT pin GPIO port number.
+//    <1=> Port number for E8 Appkit
+//    <8=> Port number for E8 Devkit
 // <i> Default: 8
 #define RTE_ICM42670_INT_IO_PORT 8
 
@@ -1990,6 +1992,8 @@
 
 // <o> BMI323 IMU INT pin GPIO port number range <0-15>
 // <i> Defines BMI323 IMU INT pin GPIO port number.
+//    <1=> Port number for E8 Appkit
+//    <8=> Port number for E8 Devkit
 // <i> Default: 8
 #define RTE_BMI323_INT_IO_PORT 8
 

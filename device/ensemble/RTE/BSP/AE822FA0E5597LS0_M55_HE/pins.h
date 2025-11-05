@@ -403,7 +403,7 @@ const struct pinconf board_pinconf[] = {
 
     /* P6_3 on pin B10. Functions: [0]: >>>GPIO6_3<<<, [1]: OSPI0_D3_C, [2]: UART2_RTS_A, [3]:
        LPI3C_SCL_A, [4]: PDM_C1_C, [5]: UT5_T1_B, [6]: SD_D3_D, [7]: ETH_IRQ_A */
-    /* Selected: GPIO6_3 for "UTIMER_GPO3" */
+    /* Selected: GPIO6_3 "SD_VSEL" */
     {PORT_6,
      PIN_3,
      PINMUX_ALTERNATE_FUNCTION_0,
@@ -860,7 +860,7 @@ const struct pinconf board_pinconf[] = {
 
     /* P14_7 on pin L12. Functions: [0]: GPIO14_7, [1]: >>>CMP0_OUT_B<<<, [2]: SPI1_SS0_C, [3]:
        FAULT3_C */
-    /* Selected: GPIO14_7 */
+    /* Selected: GPIO14_7 "SD_RESET" */
     {PORT_14, PIN_7, PINMUX_ALTERNATE_FUNCTION_0, PADCTRL_OUTPUT_DRIVE_STRENGTH_4MA},
 
     /* P15_0 on pin V2 {FLEX IO}. Functions: [0]: >>>GPIOV_0<<<, [1]: LPTMR0_CLK_IO. Note that
