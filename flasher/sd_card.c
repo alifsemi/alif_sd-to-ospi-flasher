@@ -14,13 +14,6 @@
 
 #include "Driver_IO.h"
 
-// TODO: VSEL PORT and PIN are not yet set in BSP
-//       so we do a shortcut here and define the VSEL pin for E4/E8 DevKit when RESET pin is defined 
-#ifdef BOARD_SD_RESET_GPIO_PORT
-#define BOARD_SD_VSEL_GPIO_PORT 6
-#define BOARD_SD_VSEL_GPIO_PIN 3
-#endif
-
 #ifdef BOARD_SD_RESET_GPIO_PORT
 extern ARM_DRIVER_GPIO ARM_Driver_GPIO_(BOARD_SD_RESET_GPIO_PORT);
 #endif
