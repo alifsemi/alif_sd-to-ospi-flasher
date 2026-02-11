@@ -52,7 +52,7 @@ const struct pinconf board_pinconf[] = {
 
     /* P0_4 on pin H6. Functions: [0]: >>>GPIO0_4<<<, [1]: JTAG1_TRST, [2]: UART1_RX_A, [3]: SPI1_SS1_A, [4]: FAULT0_A, [5]: CAN0_STBY_A, [6]: ANA_S4, [7]: BLE_DBG4 */
     /* Selected: GPIO0_4 */
-    {PORT_0, PIN_4, PINMUX_ALTERNATE_FUNCTION_0, PADCTRL_READ_ENABLE | PADCTRL_OUTPUT_DRIVE_STRENGTH_4MA},
+    {PORT_0, PIN_4, PINMUX_ALTERNATE_FUNCTION_0, PADCTRL_OUTPUT_DRIVE_STRENGTH_4MA},
 
     /* P0_5 on pin H10. Functions: [0]: GPIO0_5, [1]: JTAG1_TCK, [2]: UART1_TX_A, [3]: SPI1_SS2_A, [4]: FAULT1_A, [5]: >>>I3C_SCL_A<<<, [6]: ANA_S5, [7]: BLE_DBG5 */
     /* Selected: I3C_SCL_A */
@@ -260,7 +260,7 @@ const struct pinconf board_pinconf[] = {
 
     /* P7_0 on pin D9. Functions: [0]: GPIO7_0, [1]: OSPI0_SCLK_C, [2]: LPUART_RX_B, [3]: SPI2_MISO_B, [4]: >>>I2C0_SDA_C<<<, [5]: LPCAM_D0_B, [6]: CDC_D16_A, [7]: BLE_DBG24 */
     /* Selected: I2C0_SDA_C */
-    {PORT_7, PIN_0, PINMUX_ALTERNATE_FUNCTION_4, PADCTRL_READ_ENABLE},
+    {PORT_7, PIN_0, PINMUX_ALTERNATE_FUNCTION_0, PADCTRL_OUTPUT_DRIVE_STRENGTH_4MA},
 
     /* P7_1 on pin A5. Functions: [0]: GPIO7_1, [1]: OSPI0_SCLKN_C, [2]: LPUART_TX_B, [3]: SPI2_MOSI_B, [4]: >>>I2C0_SCL_C<<<, [5]: LPCAM_D1_B, [6]: CDC_D17_A, [7]: BLE_DBG25 */
     /* Selected: I2C0_SCL_C */

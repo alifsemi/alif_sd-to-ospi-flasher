@@ -1969,3 +1969,7 @@
 #define BOARD_MIC_INPUT_SCLK_ALTERNATE_FUNCTION         2
 
 // </h>
+#define BOARD_SD_RESET_GPIO_PORT                        7
+#define BOARD_SD_RESET_GPIO_PIN                         0
+#define BOARD_SD_VSEL_GPIO_PORT                         0
+#define BOARD_SD_VSEL_GPIO_PIN                          4
