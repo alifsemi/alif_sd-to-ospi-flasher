@@ -17,16 +17,16 @@
 
 #include "board_defs.h"
 
-extern ARM_DRIVER_GPIO ARM_Driver_GPIO_(BOARD_ISSI_FLASH_RESET_GPIO_PORT);
-static ARM_DRIVER_GPIO *OSPI_GPIODrv = &ARM_Driver_GPIO_(BOARD_ISSI_FLASH_RESET_GPIO_PORT);
-extern ARM_DRIVER_FLASH ARM_Driver_Flash_(1);
-static ARM_DRIVER_FLASH* ptrDrvFlash = &ARM_Driver_Flash_(1);
+extern ARM_DRIVER_GPIO ARM_Driver_GPIO_(BOARD_OSPI_FLASH_RESET_GPIO_PORT);
+static ARM_DRIVER_GPIO *OSPI_GPIODrv = &ARM_Driver_GPIO_(BOARD_OSPI_FLASH_RESET_GPIO_PORT);
+extern ARM_DRIVER_FLASH ARM_Driver_Flash_(BOARD_OSPI_FLASH_INSTANCE);
+static ARM_DRIVER_FLASH* ptrDrvFlash = &ARM_Driver_Flash_(BOARD_OSPI_FLASH_INSTANCE);
 
 UCHAR file_buffer[512] __attribute__((section("sd_dma_buf"))) __attribute__((aligned(32)));
 
 static void toggle_ospi_flash_reset(void) {
-    OSPI_GPIODrv->SetValue(BOARD_ISSI_FLASH_RESET_GPIO_PIN, GPIO_PIN_OUTPUT_STATE_LOW);
-    OSPI_GPIODrv->SetValue(BOARD_ISSI_FLASH_RESET_GPIO_PIN, GPIO_PIN_OUTPUT_STATE_HIGH);
+    OSPI_GPIODrv->SetValue(BOARD_OSPI_FLASH_RESET_GPIO_PIN, GPIO_PIN_OUTPUT_STATE_LOW);
+    OSPI_GPIODrv->SetValue(BOARD_OSPI_FLASH_RESET_GPIO_PIN, GPIO_PIN_OUTPUT_STATE_HIGH);
 }
 
 bool ext_flash_init(void)
